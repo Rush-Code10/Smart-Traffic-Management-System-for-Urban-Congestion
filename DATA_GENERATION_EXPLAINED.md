@@ -1,12 +1,12 @@
-# 📊 Data Generation in Smart Traffic Management System
+# Data Generation in Smart Traffic Management System
 
-## 🎯 **Overview**
+## **Overview**
 
 The Smart Traffic Management System generates data at multiple levels to simulate a realistic traffic environment. Since we don't have access to real traffic cameras and sensors, the system creates synthetic but realistic data that mimics real-world traffic patterns.
 
 ---
 
-## 🔄 **Data Generation Layers**
+## **Data Generation Layers**
 
 ### **Layer 1: Vehicle Detection Data (Bottom Layer)**
 **What:** Individual vehicle detections from "cameras"
@@ -30,7 +30,7 @@ The Smart Traffic Management System generates data at multiple levels to simulat
 
 ---
 
-## 🚗 **Layer 1: Vehicle Detection Data**
+## **Layer 1: Vehicle Detection Data**
 
 ### **Traffic Simulator (`traffic_simulator.py`)**
 
@@ -77,7 +77,7 @@ VehicleDetection(
 
 ---
 
-## 📊 **Layer 2: Traffic State Data**
+## **Layer 2: Traffic State Data**
 
 ### **Traffic Aggregator + Dashboard Generation**
 
@@ -126,7 +126,7 @@ def _generate_sample_traffic_data(self):
 
 ---
 
-## 📈 **Layer 3: Performance Data**
+## **Layer 3: Performance Data**
 
 ### **Demo Data Generation (`dashboard_demo.py`)**
 
@@ -173,7 +173,7 @@ def generate_demo_traffic_data(components, duration_minutes=60):
 
 ---
 
-## 🤖 **Layer 4: AI & Prediction Data**
+## **Layer 4: AI & Prediction Data**
 
 ### **Q-Learning Agent Data**
 
@@ -211,7 +211,7 @@ predictions = PredictionResult(
 
 ---
 
-## 🎲 **Randomization & Realism**
+## **Randomization & Realism**
 
 ### **Why Use Random Data?**
 
@@ -244,7 +244,7 @@ wait_time = queue_length * 1.8 + np.random.normal(0, 8)  # more queue = more wai
 
 ---
 
-## 📊 **Data Flow Through System**
+## **Data Flow Through System**
 
 ```
 1. Traffic Simulator
@@ -270,7 +270,7 @@ wait_time = queue_length * 1.8 + np.random.normal(0, 8)  # more queue = more wai
 
 ---
 
-## 🎯 **Data Types Generated**
+## **Data Types Generated**
 
 ### **Real-time Data (Every 5 seconds):**
 - Vehicle counts per direction
@@ -293,7 +293,7 @@ wait_time = queue_length * 1.8 + np.random.normal(0, 8)  # more queue = more wai
 
 ---
 
-## 🔧 **Configuration-Driven Generation**
+## **Configuration-Driven Generation**
 
 ### **Intersection Configuration:**
 ```json
@@ -325,7 +325,7 @@ This configuration drives:
 
 ---
 
-## 🎮 **Demo vs Production Data**
+## **Demo vs Production Data**
 
 ### **Demo Mode (Current Implementation):**
 - **Synthetic data** generated in real-time
@@ -341,7 +341,7 @@ This configuration drives:
 
 ---
 
-## 🎯 **Key Takeaways**
+## **Key Takeaways**
 
 1. **Multi-layered Generation:** Data is created at vehicle, traffic, performance, and AI levels
 2. **Realistic Patterns:** Random data follows real-world traffic behaviors
@@ -351,4 +351,4 @@ This configuration drives:
 6. **Scalable Approach:** Can simulate any number of intersections
 7. **AI Training Ready:** Generated data trains RL agents and LSTM models
 
-**The magic is that random data, when properly structured with realistic patterns and correlations, creates a convincing simulation of real traffic that allows the AI to learn and optimize just like it would with real data!** 🚦🤖✨
+**The magic is that random data, when properly structured with realistic patterns and correlations, creates a convincing simulation of real traffic that allows the AI to learn and optimize just like it would with real data!**

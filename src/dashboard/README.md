@@ -4,35 +4,35 @@ A comprehensive Streamlit-based dashboard for monitoring and controlling the AI-
 
 ## Features
 
-### 🔍 Real-time Monitoring
+### Real-time Monitoring
 - Live vehicle counts by direction
 - Queue length analysis with visual indicators
 - Signal phase status with progress indicators
 - Congestion heatmaps for quick assessment
 - Real-time traffic flow visualization
 
-### 📊 Performance Metrics
+### Performance Metrics
 - Key Performance Indicators (KPIs) dashboard
 - Commute time reduction tracking (target: 10%)
 - Before/after system implementation comparisons
 - Throughput and efficiency metrics
 - Queue clearance time analysis
 
-### 🚨 Manual Override Controls
+### Manual Override Controls
 - Emergency operator intervention capabilities
 - Manual signal phase control
 - Emergency vehicle priority settings
 - Override history and audit trail
 - Emergency procedures and contact information
 
-### 📈 Analytics & Trends
+### Analytics & Trends
 - Traffic pattern analysis over multiple time periods
 - Prediction accuracy visualization
 - Signal optimization impact assessment
 - Data export functionality (CSV, JSON, Excel)
 - Historical trend analysis
 
-### ⚙️ System Control
+### System Control
 - RL agent training controls
 - Prediction model management
 - System configuration interface

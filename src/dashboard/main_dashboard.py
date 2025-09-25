@@ -134,7 +134,7 @@ class SmartTrafficDashboard:
     
     def _render_sidebar(self):
         """Render the sidebar with controls and intersection selection."""
-        st.sidebar.title("🚦 Traffic Control")
+        st.sidebar.title("Traffic Control")
         
         # Intersection selection
         if self.intersection_ids:
@@ -162,17 +162,17 @@ class SmartTrafficDashboard:
         
         # Display status indicators
         if status['overall_status'] == 'healthy':
-            st.sidebar.success("🟢 System Healthy")
+            st.sidebar.success("System Healthy")
         elif status['overall_status'] == 'warning':
-            st.sidebar.warning("🟡 System Warning")
+            st.sidebar.warning("System Warning")
         else:
-            st.sidebar.error("🔴 System Error")
+            st.sidebar.error("System Error")
         
         # Component status
         st.sidebar.write("**Components:**")
         for component, state in status['components'].items():
-            icon = "✅" if state == "active" else "❌"
-            st.sidebar.write(f"{icon} {component.replace('_', ' ').title()}")
+            status_text = "Active" if state == "active" else "Inactive"
+            st.sidebar.write(f"{status_text}: {component.replace('_', ' ').title()}")
         
         st.sidebar.divider()
         
@@ -190,7 +190,7 @@ class SmartTrafficDashboard:
             st.rerun()
         
         # Manual refresh button
-        if st.sidebar.button("🔄 Refresh Now"):
+        if st.sidebar.button("Refresh Now"):
             st.rerun()
     
     def _render_manual_override_controls(self):
@@ -200,7 +200,7 @@ class SmartTrafficDashboard:
         if not st.session_state.manual_override_active:
             operator_id = st.sidebar.text_input("Operator ID", key="operator_input")
             
-            if st.sidebar.button("🚨 Enable Override", type="primary"):
+            if st.sidebar.button("Enable Override", type="primary"):
                 if operator_id:
                     success = self.system_integrator.enable_manual_override(
                         st.session_state.selected_intersection, operator_id
@@ -236,7 +236,7 @@ class SmartTrafficDashboard:
                     else:
                         st.sidebar.error("Failed to set phase")
             
-            if st.sidebar.button("❌ Disable Override", type="secondary"):
+            if st.sidebar.button("Disable Override", type="secondary"):
                 success = self.system_integrator.disable_manual_override(
                     st.session_state.selected_intersection
                 )
@@ -250,7 +250,7 @@ class SmartTrafficDashboard:
     
     def _render_welcome_screen(self):
         """Render welcome screen when no intersection is selected."""
-        st.title("🚦 Smart Traffic Management System")
+        st.title("Smart Traffic Management System")
         st.markdown("---")
         
         col1, col2, col3 = st.columns([1, 2, 1])
@@ -261,10 +261,10 @@ class SmartTrafficDashboard:
             
             This AI-powered system optimizes traffic signal timings using:
             
-            - 🎥 **Real-time Vehicle Detection** - Computer vision analysis of traffic cameras
-            - 🧠 **Reinforcement Learning** - Q-learning agent for signal optimization  
-            - 📈 **Traffic Prediction** - LSTM neural networks for forecasting
-            - 📊 **Performance Analytics** - Comprehensive traffic metrics and reporting
+            - **Real-time Vehicle Detection** - Computer vision analysis of traffic cameras
+            - **Reinforcement Learning** - Q-learning agent for signal optimization  
+            - **Traffic Prediction** - LSTM neural networks for forecasting
+            - **Performance Analytics** - Comprehensive traffic metrics and reporting
             
             ### Getting Started
             1. Select an intersection from the sidebar
@@ -316,7 +316,7 @@ class SmartTrafficDashboard:
         intersection_name = self._get_intersection_name(intersection_id)
         
         # Header
-        st.title(f"🚦 {intersection_name}")
+        st.title(f"{intersection_name}")
         st.markdown(f"*Intersection ID: {intersection_id}*")
         
         # Get current data
@@ -333,10 +333,10 @@ class SmartTrafficDashboard:
         
         # Create tabs for different sections
         tab1, tab2, tab3, tab4 = st.tabs([
-            "🔍 Real-time Monitoring", 
-            "📊 Performance Metrics", 
-            "📈 Analytics & Trends",
-            "⚙️ System Control"
+            "Real-time Monitoring", 
+            "Performance Metrics", 
+            "Analytics & Trends",
+            "System Control"
         ])
         
         with tab1:
@@ -357,11 +357,11 @@ class SmartTrafficDashboard:
         avg_wait = traffic_state.get_average_wait_time()
         
         if total_vehicles > 30 or avg_wait > 120:
-            st.error("🚨 **HIGH CONGESTION ALERT** - Consider manual intervention")
+            st.error("**HIGH CONGESTION ALERT** - Consider manual intervention")
         elif total_vehicles > 15 or avg_wait > 60:
-            st.warning("⚠️ **MODERATE CONGESTION** - System actively optimizing")
+            st.warning("**MODERATE CONGESTION** - System actively optimizing")
         elif traffic_state.prediction_confidence < 0.5:
-            st.info("ℹ️ **LOW PREDICTION CONFIDENCE** - Using real-time data only")
+            st.info("**LOW PREDICTION CONFIDENCE** - Using real-time data only")
     
     def _render_main_metrics(self, traffic_state: TrafficState, signal_state: IntersectionSignalState):
         """Render main metrics row."""

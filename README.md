@@ -1,4 +1,4 @@
-# 🚦 Smart Traffic Management System
+# Smart Traffic Management System
 
 An AI-powered traffic management system that uses computer vision, reinforcement learning, and predictive analytics to optimize traffic signal timings and reduce urban congestion by **10%**.
 
@@ -7,18 +7,18 @@ An AI-powered traffic management system that uses computer vision, reinforcement
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Tests](https://img.shields.io/badge/Tests-Passing-brightgreen.svg)](tests/)
 
-## 🎯 **System Overview**
+## **System Overview**
 
 The Smart Traffic Management System is like having an AI traffic controller that:
-- **👁️ Watches** traffic through cameras using computer vision
-- **🧠 Learns** from experience using Q-learning reinforcement learning
-- **🔮 Predicts** future traffic patterns with LSTM neural networks
-- **🚦 Controls** traffic lights intelligently in real-time
-- **📊 Monitors** everything through an interactive dashboard
+- **Watches** traffic through cameras using computer vision
+- **Learns** from experience using Q-learning reinforcement learning
+- **Predicts** future traffic patterns with LSTM neural networks
+- **Controls** traffic lights intelligently in real-time
+- **Monitors** everything through an interactive dashboard
 
 **Goal:** Achieve 10% reduction in average commute time through intelligent traffic optimization.
 
-## 🚀 **Quick Start**
+## **Quick Start**
 
 ### **Launch the Dashboard (Recommended)**
 ```bash
@@ -40,120 +40,120 @@ streamlit run src/dashboard/simple_dashboard.py
 python src/dashboard/run_dashboard.py
 ```
 
-## 📁 **Project Structure**
+## **Project Structure**
 
 ```
-📦 Smart Traffic Management System
-├── 🚦 src/
-│   ├── 📊 dashboard/              # Interactive Streamlit dashboard
+Smart Traffic Management System
+├── src/
+│   ├── dashboard/              # Interactive Streamlit dashboard
 │   │   ├── main_dashboard.py      # Full-featured dashboard
 │   │   ├── simple_dashboard.py    # Working dashboard (recommended)
 │   │   ├── dashboard_components.py # Modular UI components
 │   │   └── README.md              # Dashboard documentation
-│   ├── 🤖 agents/                 # AI agents for optimization
+│   ├── agents/                 # AI agents for optimization
 │   │   ├── q_learning_agent.py    # Q-learning RL agent
 │   │   ├── signal_control_manager.py # Signal hardware interface
 │   │   ├── training_loop.py       # RL training orchestration
 │   │   └── predictive_q_agent.py  # Advanced RL with predictions
-│   ├── 🔄 processors/             # Data processing components
+│   ├── processors/             # Data processing components
 │   │   ├── camera_processor.py    # Computer vision & vehicle detection
 │   │   ├── traffic_aggregator.py  # Traffic data aggregation
 │   │   ├── vehicle_counter.py     # Vehicle counting logic
 │   │   ├── traffic_simulator.py   # Traffic simulation
 │   │   └── prediction_engine.py   # LSTM traffic prediction
-│   ├── 📋 models/                 # Data models
+│   ├── models/                 # Data models
 │   │   ├── traffic_state.py       # Traffic condition representation
 │   │   ├── vehicle_detection.py   # Vehicle detection data
 │   │   └── signal_action.py       # Signal control actions
-│   ├── ⚙️ config/                 # Configuration management
+│   ├── config/                 # Configuration management
 │   │   ├── config_manager.py      # System configuration
 │   │   └── intersection_config.py # Intersection geometry
-│   └── 🛠️ utils/                  # Utility functions
+│   └── utils/                  # Utility functions
 │       ├── logging_config.py      # Logging setup
 │       └── error_handling.py      # Error handling utilities
-├── 🧪 tests/                      # Comprehensive test suite
-├── 📖 examples/                   # Demo scripts and examples
-├── 📄 docs/                       # Documentation
-└── 🔧 config/                     # Configuration files
+├── tests/                      # Comprehensive test suite
+├── examples/                   # Demo scripts and examples
+├── docs/                       # Documentation
+└── config/                     # Configuration files
 ```
 
-## ✨ **Key Features**
+## **Key Features**
 
-### **🔍 Real-time Traffic Monitoring**
+### **Real-time Traffic Monitoring**
 - **Live vehicle detection** using YOLO computer vision
 - **Real-time traffic counts** by direction and vehicle type
 - **Queue length analysis** with visual indicators
 - **Signal state monitoring** with timing information
 - **Congestion level alerts** with color-coded warnings
 
-### **🤖 AI-Powered Optimization**
+### **AI-Powered Optimization**
 - **Q-learning agent** that learns optimal signal timings
 - **Reinforcement learning** that improves from experience
 - **Multi-factor decision making** considering traffic, queues, and wait times
 - **Adaptive signal control** that responds to changing conditions
 - **Performance tracking** with reward-based learning
 
-### **🔮 Traffic Prediction**
+### **Traffic Prediction**
 - **LSTM neural networks** for traffic forecasting
 - **30-minute ahead predictions** for proactive optimization
 - **Pattern recognition** from historical traffic data
 - **Time-based predictions** considering day/hour patterns
 - **Confidence scoring** for prediction reliability
 
-### **📊 Interactive Dashboard**
+### **Interactive Dashboard**
 - **Real-time monitoring** with live data updates
 - **Performance metrics** showing commute time improvements
 - **Before/after comparisons** demonstrating system effectiveness
 - **Traffic analytics** with trend analysis and reporting
 - **Data export** capabilities (CSV, JSON, Excel)
 
-### **🚨 Manual Override & Control**
+### **Manual Override & Control**
 - **Emergency controls** for operator intervention
 - **Manual signal control** for special situations
 - **Operator authentication** with action logging
 - **Emergency vehicle priority** controls
 - **System reset** and emergency stop capabilities
 
-### **📈 Performance Analytics**
+### **Performance Analytics**
 - **10% commute time reduction** tracking and visualization
 - **Traffic flow optimization** metrics and KPIs
 - **Historical performance** analysis and reporting
 - **Prediction accuracy** monitoring and validation
 - **System efficiency** measurements and improvements
 
-## 🏗️ **System Architecture**
+## **System Architecture**
 
 ```
 ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-│   📹 Camera     │───▶│  🧠 Computer    │───▶│  📊 Traffic     │
+│   Camera        │───▶│  Computer       │───▶│  Traffic        │
 │   Feed          │    │   Vision        │    │   Aggregator    │
 │   Processor     │    │   (YOLO)        │    │                 │
 └─────────────────┘    └─────────────────┘    └─────────────────┘
          │                       │                       │
          ▼                       ▼                       ▼
 ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-│  🤖 RL Agent    │    │  🔮 Prediction  │    │  📱 Dashboard   │
+│  RL Agent       │    │  Prediction     │    │  Dashboard      │
 │  (Q-Learning)   │◀───│   Engine        │───▶│  (Streamlit)    │
 │                 │    │   (LSTM)        │    │                 │
 └─────────────────┘    └─────────────────┘    └─────────────────┘
          │                                              │
          ▼                                              ▼
 ┌─────────────────┐                          ┌─────────────────┐
-│  🚦 Signal      │                          │  👤 Traffic     │
+│  Signal         │                          │  Traffic        │
 │   Control       │                          │   Operators     │
 │   Manager       │                          │                 │
 └─────────────────┘                          └─────────────────┘
 ```
 
-## 🔄 **How It Works**
+## **How It Works**
 
 ### **The Complete Flow:**
-1. **📹 Detection:** Cameras capture traffic, AI detects vehicles
-2. **📊 Analysis:** System aggregates traffic data (counts, queues, wait times)
-3. **🤖 Decision:** Q-learning agent decides optimal signal timing
-4. **🔮 Prediction:** LSTM forecasts future traffic patterns
-5. **🚦 Control:** Signal manager adjusts traffic light timing
-6. **📱 Monitor:** Dashboard shows real-time status to operators
+1. **Detection:** Cameras capture traffic, AI detects vehicles
+2. **Analysis:** System aggregates traffic data (counts, queues, wait times)
+3. **Decision:** Q-learning agent decides optimal signal timing
+4. **Prediction:** LSTM forecasts future traffic patterns
+5. **Control:** Signal manager adjusts traffic light timing
+6. **Monitor:** Dashboard shows real-time status to operators
 
 ### **AI Learning Process:**
 1. **Observe** current traffic conditions
@@ -163,9 +163,9 @@ python src/dashboard/run_dashboard.py
 5. **Learn** from outcomes (reward/penalty)
 6. **Improve** future decisions
 
-**Result:** Traffic lights that get smarter over time! 🧠✨
+**Result:** Traffic lights that get smarter over time!
 
-## 🎮 **Demo & Testing**
+## **Demo & Testing**
 
 ### **Run the Demo**
 ```bash
@@ -187,22 +187,22 @@ pytest tests/test_q_learning_agent.py -v
 pytest tests/test_prediction_engine.py -v
 ```
 
-## 📊 **Performance Results**
+## **Performance Results**
 
 ### **Traffic Optimization Achievements:**
-- ✅ **10% average commute time reduction** (target achieved)
-- ✅ **15% reduction in vehicle wait times** at intersections
-- ✅ **20% improvement in traffic throughput** during peak hours
-- ✅ **85%+ vehicle detection accuracy** with computer vision
-- ✅ **70%+ traffic prediction accuracy** for 30-minute forecasts
+- **10% average commute time reduction** (target achieved)
+- **15% reduction in vehicle wait times** at intersections
+- **20% improvement in traffic throughput** during peak hours
+- **85%+ vehicle detection accuracy** with computer vision
+- **70%+ traffic prediction accuracy** for 30-minute forecasts
 
 ### **System Performance:**
-- ⚡ **Real-time processing** at 10+ FPS for video analysis
-- 🔄 **5-second update intervals** for traffic data
-- 📊 **Sub-second response times** for dashboard interactions
-- 🎯 **99.8% system uptime** with automatic error recovery
+- **Real-time processing** at 10+ FPS for video analysis
+- **5-second update intervals** for traffic data
+- **Sub-second response times** for dashboard interactions
+- **99.8% system uptime** with automatic error recovery
 
-## 🛠️ **Configuration**
+## **Configuration**
 
 ### **System Configuration**
 The system uses JSON configuration files:
@@ -236,7 +236,7 @@ The system uses JSON configuration files:
 - **Timing parameters** for signal optimization
 - **Performance thresholds** for alerts and notifications
 
-## 🔧 **Dependencies**
+## **Dependencies**
 
 ### **Core Requirements**
 ```
@@ -259,14 +259,14 @@ pip install -r requirements.txt
 pip install streamlit plotly pandas numpy torch scikit-learn opencv-python ultralytics
 ```
 
-## 📚 **Documentation**
+## **Documentation**
 
 ### **Detailed Guides**
-- 📖 **[How the System Works](HOW_THE_SYSTEM_WORKS.md)** - Complete technical explanation
-- 🚦 **[Dashboard Guide](src/dashboard/README.md)** - Dashboard usage and features
-- 📋 **[Implementation Summary](DASHBOARD_IMPLEMENTATION_SUMMARY.md)** - Development details
-- 🎯 **[Requirements](/.kiro/specs/smart-traffic-management/requirements.md)** - System requirements
-- 🏗️ **[Design Document](/.kiro/specs/smart-traffic-management/design.md)** - Architecture details
+- **[How the System Works](HOW_THE_SYSTEM_WORKS.md)** - Complete technical explanation
+- **[Dashboard Guide](src/dashboard/README.md)** - Dashboard usage and features
+- **[Implementation Summary](DASHBOARD_IMPLEMENTATION_SUMMARY.md)** - Development details
+- **[Requirements](/.kiro/specs/smart-traffic-management/requirements.md)** - System requirements
+- **[Design Document](/.kiro/specs/smart-traffic-management/design.md)** - Architecture details
 
 ### **API Documentation**
 - **TrafficState** - Traffic condition data model
@@ -275,7 +275,7 @@ pip install streamlit plotly pandas numpy torch scikit-learn opencv-python ultra
 - **PredictionEngine** - LSTM traffic forecasting
 - **SignalControlManager** - Traffic light interface
 
-## 🚨 **Emergency Features**
+## **Emergency Features**
 
 ### **Manual Override Capabilities**
 - **Emergency stop** - Set all signals to red immediately
@@ -291,7 +291,7 @@ pip install streamlit plotly pandas numpy torch scikit-learn opencv-python ultra
 - **Confirmation dialogs** for critical operations
 - **Emergency contact information** readily available
 
-## 🤝 **Contributing**
+## **Contributing**
 
 ### **Development Setup**
 ```bash
@@ -317,11 +317,11 @@ python launch_dashboard.py
 - **Error handling** with graceful fallbacks
 - **Logging** for debugging and monitoring
 
-## 📄 **License**
+## **License**
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 **Acknowledgments**
+## **Acknowledgments**
 
 - **OpenCV** for computer vision capabilities
 - **Ultralytics YOLO** for vehicle detection
@@ -331,19 +331,19 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-## 🎯 **Quick Commands**
+## **Quick Commands**
 
 ```bash
-# 🚀 Launch Dashboard
+# Launch Dashboard
 python launch_dashboard.py
 
-# 🧪 Run Tests
+# Run Tests
 pytest
 
-# 🎮 Run Demo
+# Run Demo
 python examples/dashboard_demo.py
 
-# 📊 Integration Test
+# Integration Test
 python examples/test_dashboard_integration.py
 ```
 
@@ -351,4 +351,4 @@ python examples/test_dashboard_integration.py
 
 ---
 
-**Built with ❤️ for smarter cities and better traffic flow
+**Built with care for smarter cities and better traffic flow**

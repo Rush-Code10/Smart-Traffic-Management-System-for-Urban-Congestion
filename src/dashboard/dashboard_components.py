@@ -108,7 +108,7 @@ class TrafficMonitor:
                 
                 # Signal state indicator
                 if phase_state.current_state.value == 'green':
-                    st.markdown(f'<div style="text-align: center; color: green; font-size: 24px;">🟢</div>', 
+                    st.markdown(f'<div style="text-align: center; color: green; font-size: 24px;">GREEN</div>', 
                                unsafe_allow_html=True)
                     st.markdown(f'<div style="text-align: center; font-weight: bold;">{phase_name}</div>', 
                                unsafe_allow_html=True)
@@ -119,21 +119,21 @@ class TrafficMonitor:
                     st.write(f"Remaining: {phase_state.time_remaining}s")
                     
                 elif phase_state.current_state.value == 'yellow':
-                    st.markdown(f'<div style="text-align: center; color: orange; font-size: 24px;">🟡</div>', 
+                    st.markdown(f'<div style="text-align: center; color: orange; font-size: 24px;">YELLOW</div>', 
                                unsafe_allow_html=True)
                     st.markdown(f'<div style="text-align: center; font-weight: bold;">{phase_name}</div>', 
                                unsafe_allow_html=True)
                     st.write(f"Remaining: {phase_state.time_remaining}s")
                     
                 else:  # red
-                    st.markdown(f'<div style="text-align: center; color: red; font-size: 24px;">🔴</div>', 
+                    st.markdown(f'<div style="text-align: center; color: red; font-size: 24px;">RED</div>', 
                                unsafe_allow_html=True)
                     st.markdown(f'<div style="text-align: center; font-weight: bold;">{phase_name}</div>', 
                                unsafe_allow_html=True)
         
         # Manual override indicator
         if signal_state.manual_override:
-            st.warning(f"🚨 Manual Override Active - Operator: {signal_state.override_operator}")
+            st.warning(f"ALERT: Manual Override Active - Operator: {signal_state.override_operator}")
     
     def render_congestion_heatmap(self, traffic_state: TrafficState) -> None:
         """Render congestion level heatmap."""
@@ -254,11 +254,11 @@ class PerformanceMetrics:
             st.progress(progress)
             
             if reduction_pct >= target_reduction:
-                st.success(f"🎯 Target Achieved! {reduction_pct:.1f}% reduction")
+                st.success(f"Target Achieved! {reduction_pct:.1f}% reduction")
             elif reduction_pct >= target_reduction * 0.7:
-                st.info(f"📈 Good Progress: {reduction_pct:.1f}% reduction")
+                st.info(f"Good Progress: {reduction_pct:.1f}% reduction")
             else:
-                st.warning(f"⚠️ Below Target: {reduction_pct:.1f}% reduction")
+                st.warning(f"Below Target: {reduction_pct:.1f}% reduction")
         
         with col2:
             # Numeric display
@@ -332,7 +332,7 @@ class ManualOverride:
                     ["Emergency", "Maintenance", "Special Event", "Testing", "Other"]
                 )
             
-            if st.button("🚨 Activate Manual Override", type="primary"):
+            if st.button("Activate Manual Override", type="primary"):
                 if operator_id:
                     override_actions['activate'] = {
                         'operator_id': operator_id,
@@ -370,7 +370,7 @@ class ManualOverride:
             col1, col2, col3 = st.columns(3)
             
             with col1:
-                if st.button("🚨 All Red", type="secondary"):
+                if st.button("All Red", type="secondary"):
                     override_actions['all_red'] = {'intersection_id': intersection_id}
             
             with col2:
@@ -382,7 +382,7 @@ class ManualOverride:
                     }
             
             with col3:
-                if st.button("❌ Deactivate Override"):
+                if st.button("Deactivate Override"):
                     override_actions['deactivate'] = {'intersection_id': intersection_id}
         
         return override_actions
@@ -399,7 +399,7 @@ class ManualOverride:
     
     def render_emergency_procedures(self) -> None:
         """Render emergency procedures and contact information."""
-        with st.expander("🚨 Emergency Procedures"):
+        with st.expander("Emergency Procedures"):
             st.markdown("""
             ### Emergency Response Procedures
             
@@ -451,8 +451,7 @@ class AnalyticsSection:
         
         with col1:
             trend_direction = trend_data.get('trend_direction', 'stable')
-            trend_icons = {"increasing": "📈", "decreasing": "📉", "stable": "➡️"}
-            st.metric("Traffic Trend", f"{trend_icons[trend_direction]} {trend_direction.title()}")
+            st.metric("Traffic Trend", f"{trend_direction.title()}")
         
         with col2:
             avg_vehicles = trend_data.get('average_vehicles', 0)
@@ -464,8 +463,7 @@ class AnalyticsSection:
         
         with col4:
             congestion_level = trend_data.get('congestion_level', 'low')
-            congestion_colors = {"low": "🟢", "medium": "🟡", "high": "🔴"}
-            st.metric("Congestion Level", f"{congestion_colors[congestion_level]} {congestion_level.title()}")
+            st.metric("Congestion Level", f"{congestion_level.title()}")
     
     def render_prediction_analysis(self, predictions: Optional[PredictionResult]) -> None:
         """Render traffic prediction analysis."""
@@ -574,7 +572,7 @@ class AnalyticsSection:
                 ["Traffic Data", "Performance Metrics", "System Config", "All Data"]
             )
         
-        if st.button("📊 Generate Export"):
+        if st.button("Generate Export"):
             export_actions['generate'] = {
                 'intersection_id': intersection_id,
                 'period': export_period,

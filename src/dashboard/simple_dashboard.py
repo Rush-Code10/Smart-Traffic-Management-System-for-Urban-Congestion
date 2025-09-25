@@ -89,7 +89,7 @@ class SimpleTrafficDashboard:
     
     def _render_sidebar(self):
         """Render the sidebar."""
-        st.sidebar.title("🚦 Traffic Control")
+        st.sidebar.title("Traffic Control")
         
         # Intersection selection
         if self.intersection_ids:
@@ -111,13 +111,13 @@ class SimpleTrafficDashboard:
         
         # System status
         st.sidebar.subheader("System Status")
-        st.sidebar.success("🟢 System Healthy")
+        st.sidebar.success("System Healthy")
         
         # Components
         st.sidebar.write("**Components:**")
-        st.sidebar.write("✅ Traffic Monitoring")
-        st.sidebar.write("✅ Signal Control")
-        st.sidebar.write("✅ Data Processing")
+        st.sidebar.write("Traffic Monitoring")
+        st.sidebar.write("Signal Control")
+        st.sidebar.write("Data Processing")
         
         st.sidebar.divider()
         
@@ -133,7 +133,7 @@ class SimpleTrafficDashboard:
             time.sleep(refresh_rate)
             st.rerun()
         
-        if st.sidebar.button("🔄 Refresh Now"):
+        if st.sidebar.button("Refresh Now"):
             st.rerun()
     
     def _render_manual_override_controls(self):
@@ -143,7 +143,7 @@ class SimpleTrafficDashboard:
         if not st.session_state.manual_override_active:
             operator_id = st.sidebar.text_input("Operator ID", key="operator_input")
             
-            if st.sidebar.button("🚨 Enable Override", type="primary"):
+            if st.sidebar.button("Enable Override", type="primary"):
                 if operator_id:
                     st.session_state.manual_override_active = True
                     st.session_state.override_operator = operator_id
@@ -162,7 +162,7 @@ class SimpleTrafficDashboard:
             if st.sidebar.button("Set Phase"):
                 st.sidebar.success(f"Set {selected_phase} for {duration}s")
             
-            if st.sidebar.button("❌ Disable Override", type="secondary"):
+            if st.sidebar.button("Disable Override", type="secondary"):
                 st.session_state.manual_override_active = False
                 st.session_state.override_operator = ""
                 st.sidebar.success("Override disabled")
@@ -170,7 +170,7 @@ class SimpleTrafficDashboard:
     
     def _render_welcome_screen(self):
         """Render welcome screen."""
-        st.title("🚦 Smart Traffic Management System")
+        st.title("Smart Traffic Management System")
         st.markdown("---")
         
         col1, col2, col3 = st.columns([1, 2, 1])
@@ -181,10 +181,10 @@ class SimpleTrafficDashboard:
             
             This AI-powered system optimizes traffic signal timings using:
             
-            - 🎥 **Real-time Vehicle Detection** - Computer vision analysis
-            - 🧠 **Reinforcement Learning** - Q-learning optimization  
-            - 📈 **Traffic Prediction** - LSTM neural networks
-            - 📊 **Performance Analytics** - Comprehensive metrics
+            - **Real-time Vehicle Detection** - Computer vision analysis
+            - **Reinforcement Learning** - Q-learning optimization  
+            - **Traffic Prediction** - LSTM neural networks
+            - **Performance Analytics** - Comprehensive metrics
             
             ### Getting Started
             1. Select an intersection from the sidebar
@@ -217,7 +217,7 @@ class SimpleTrafficDashboard:
         intersection_name = self._get_intersection_name(intersection_id)
         
         # Header
-        st.title(f"🚦 {intersection_name}")
+        st.title(f"{intersection_name}")
         st.markdown(f"*Intersection ID: {intersection_id}*")
         
         # Generate sample traffic data
@@ -233,10 +233,10 @@ class SimpleTrafficDashboard:
         
         # Tabs
         tab1, tab2, tab3, tab4 = st.tabs([
-            "🔍 Real-time Monitoring", 
-            "📊 Performance Metrics", 
-            "📈 Analytics & Trends",
-            "⚙️ System Control"
+            "Real-time Monitoring", 
+            "Performance Metrics", 
+            "Analytics & Trends",
+            "System Control"
         ])
         
         with tab1:
@@ -292,11 +292,11 @@ class SimpleTrafficDashboard:
         avg_wait = np.mean(list(traffic_data['wait_times'].values()))
         
         if total_vehicles > 60 or avg_wait > 70:
-            st.error("🚨 **HIGH CONGESTION ALERT** - Consider manual intervention")
+            st.error("**HIGH CONGESTION ALERT** - Consider manual intervention")
         elif total_vehicles > 30 or avg_wait > 45:
-            st.warning("⚠️ **MODERATE CONGESTION** - System actively optimizing")
+            st.warning("**MODERATE CONGESTION** - System actively optimizing")
         elif traffic_data['confidence'] < 0.7:
-            st.info("ℹ️ **LOW PREDICTION CONFIDENCE** - Using real-time data only")
+            st.info("**LOW PREDICTION CONFIDENCE** - Using real-time data only")
     
     def _render_main_metrics(self, traffic_data):
         """Render main metrics row."""
@@ -317,9 +317,9 @@ class SimpleTrafficDashboard:
         with col4:
             current_phase = traffic_data['signal_phase']
             if 'Green' in current_phase:
-                st.markdown(f'<p class="signal-green">🟢 {current_phase}</p>', unsafe_allow_html=True)
+                st.markdown(f'<p class="signal-green">GREEN {current_phase}</p>', unsafe_allow_html=True)
             else:
-                st.markdown(f'<p class="signal-red">🔴 All Red</p>', unsafe_allow_html=True)
+                st.markdown(f'<p class="signal-red">RED All Red</p>', unsafe_allow_html=True)
         
         with col5:
             confidence = traffic_data['confidence']
@@ -384,12 +384,12 @@ class SimpleTrafficDashboard:
             
             for phase_name, state, remaining, total in phases:
                 if state == "green":
-                    st.markdown(f'<p class="signal-green">🟢 {phase_name}</p>', unsafe_allow_html=True)
+                    st.markdown(f'<p class="signal-green">GREEN {phase_name}</p>', unsafe_allow_html=True)
                     progress = (total - remaining) / total if total > 0 else 0
                     st.progress(progress)
                     st.write(f"Time remaining: {remaining}s")
                 else:
-                    st.markdown(f'<p class="signal-red">🔴 {phase_name}</p>', unsafe_allow_html=True)
+                    st.markdown(f'<p class="signal-red">RED {phase_name}</p>', unsafe_allow_html=True)
                 
                 st.write(f"Total duration: {total}s")
                 st.markdown("---")
@@ -468,9 +468,9 @@ class SimpleTrafficDashboard:
             st.metric("Reduction", f"{reduction:.1f}%", delta=f"{reduction:.1f}%")
         
         if reduction >= 10:
-            st.success(f"🎯 **Target Achieved!** {reduction:.1f}% reduction in commute time")
+            st.success(f"**Target Achieved!** {reduction:.1f}% reduction in commute time")
         else:
-            st.info(f"📈 **Progress:** {reduction:.1f}% reduction achieved")
+            st.info(f"**Progress:** {reduction:.1f}% reduction achieved")
     
     def _render_analytics_tab(self):
         """Render analytics tab."""
@@ -483,7 +483,7 @@ class SimpleTrafficDashboard:
         col1, col2, col3, col4 = st.columns(4)
         
         with col1:
-            st.metric("Traffic Trend", "📈 Increasing")
+            st.metric("Traffic Trend", "Increasing")
         
         with col2:
             st.metric("Average Vehicles", f"{np.random.uniform(15, 25):.1f}")
@@ -492,7 +492,7 @@ class SimpleTrafficDashboard:
             st.metric("Peak Vehicles", f"{np.random.randint(35, 50)}")
         
         with col4:
-            st.metric("Congestion Level", "🟡 Medium")
+            st.metric("Congestion Level", "Medium")
         
         st.markdown("---")
         
@@ -534,15 +534,15 @@ class SimpleTrafficDashboard:
         col1, col2, col3 = st.columns(3)
         
         with col1:
-            if st.button("📊 Export Traffic Data"):
+            if st.button("Export Traffic Data"):
                 st.success("Traffic data exported to CSV")
         
         with col2:
-            if st.button("📈 Export Performance Report"):
+            if st.button("Export Performance Report"):
                 st.success("Performance report exported to JSON")
         
         with col3:
-            if st.button("🔧 Export System Config"):
+            if st.button("Export System Config"):
                 st.success("System configuration exported")
     
     def _render_control_tab(self):
@@ -559,10 +559,10 @@ class SimpleTrafficDashboard:
             st.write(f"**Exploration Rate:** {np.random.uniform(0.05, 0.15):.3f}")
             st.write(f"**Q-Table Size:** {np.random.randint(500, 1500)} states")
             
-            if st.button("🎯 Start Training Episode"):
+            if st.button("Start Training Episode"):
                 st.success("Training episode started")
             
-            if st.button("💾 Save RL Model"):
+            if st.button("Save RL Model"):
                 st.success("RL model saved")
         
         with col2:
@@ -572,10 +572,10 @@ class SimpleTrafficDashboard:
             st.write("**Last Training:** 2 hours ago")
             st.write(f"**Prediction Confidence:** {np.random.uniform(70, 90):.1f}%")
             
-            if st.button("🔮 Generate Predictions"):
+            if st.button("Generate Predictions"):
                 st.success("Generated 6 predictions for next 30 minutes")
             
-            if st.button("🎓 Retrain Model"):
+            if st.button("Retrain Model"):
                 st.success("Model retraining started")
         
         st.markdown("---")
@@ -601,26 +601,26 @@ class SimpleTrafficDashboard:
         
         # Emergency controls
         st.markdown("---")
-        st.subheader("🚨 Emergency Controls")
+        st.subheader("Emergency Controls")
         
-        st.warning("⚠️ Use these controls only in emergency situations")
+        st.warning("Use these controls only in emergency situations")
         
         col1, col2, col3 = st.columns(3)
         
         with col1:
-            if st.button("🛑 Emergency Stop", type="secondary"):
+            if st.button("Emergency Stop", type="secondary"):
                 confirm = st.checkbox("Confirm Emergency Stop")
                 if confirm:
                     st.error("Emergency stop activated")
         
         with col2:
-            if st.button("🔄 Reset System", type="secondary"):
+            if st.button("Reset System", type="secondary"):
                 confirm = st.checkbox("Confirm System Reset")
                 if confirm:
                     st.success("System reset completed")
         
         with col3:
-            if st.button("📞 Contact Support", type="primary"):
+            if st.button("Contact Support", type="primary"):
                 st.info("Support: traffic-support@city.gov | Phone: (555) 123-4567")
     
     def _get_intersection_name(self, intersection_id: str) -> str:

@@ -1,6 +1,6 @@
 # How the Smart Traffic Management System Works
 
-## 🎯 **System Overview**
+## **System Overview**
 
 The Smart Traffic Management System is like having an AI traffic controller that never gets tired, learns from experience, and can predict traffic patterns. Think of it as a "smart brain" for traffic lights that:
 
@@ -12,11 +12,11 @@ The Smart Traffic Management System is like having an AI traffic controller that
 
 ---
 
-## 🔄 **The Complete Flow: From Camera to Traffic Light**
+## **The Complete Flow: From Camera to Traffic Light**
 
 Let me walk you through exactly what happens when a car approaches an intersection:
 
-### **Step 1: Vehicle Detection (The Eyes) 👁️**
+### **Step 1: Vehicle Detection (The Eyes)**
 ```
 Camera Feed → Computer Vision → Vehicle Detection
 ```
@@ -34,7 +34,7 @@ detections = camera_processor.process_frame(video_frame)
 # Result: [VehicleDetection(id="car_123", type="car", lane="north", position=(x,y))]
 ```
 
-### **Step 2: Traffic Analysis (The Brain) 🧠**
+### **Step 2: Traffic Analysis (The Brain)**
 ```
 Vehicle Detections → Traffic Aggregator → Traffic State
 ```
@@ -52,7 +52,7 @@ traffic_state = aggregator.aggregate_traffic_data(detections, vehicle_counts)
 # Result: TrafficState(north_vehicles=8, south_vehicles=5, avg_wait_time=45s)
 ```
 
-### **Step 3: AI Decision Making (The Intelligence) 🤖**
+### **Step 3: AI Decision Making (The Intelligence)**
 ```
 Traffic State → RL Agent → Signal Action
 ```
@@ -71,7 +71,7 @@ action = rl_agent.get_action(traffic_state)
 #                     reasoning="Heavy northbound traffic detected")
 ```
 
-### **Step 4: Traffic Prediction (The Fortune Teller) 🔮**
+### **Step 4: Traffic Prediction (The Fortune Teller)**
 ```
 Historical Data → LSTM Neural Network → Future Predictions
 ```
@@ -89,7 +89,7 @@ predictions = prediction_engine.predict_traffic_volume(intersection_id, 30_minut
 # Result: [15, 18, 22, 25, 23, 20] vehicles for next 6 time periods
 ```
 
-### **Step 5: Signal Control (The Action) 🚦**
+### **Step 5: Signal Control (The Action)**
 ```
 Signal Action → Signal Control Manager → Physical Traffic Lights
 ```
@@ -107,7 +107,7 @@ success = signal_manager.apply_signal_action(action)
 # Traffic lights physically change timing
 ```
 
-### **Step 6: Monitoring & Control (The Dashboard) 📊**
+### **Step 6: Monitoring & Control (The Dashboard)**
 ```
 All System Data → Dashboard → Human Operators
 ```
@@ -183,7 +183,7 @@ All System Data → Dashboard → Human Operators
 
 ---
 
-## 🔄 **The Learning Process**
+## **The Learning Process**
 
 ### **How the System Gets Smarter Over Time:**
 
@@ -202,7 +202,7 @@ All System Data → Dashboard → Human Operators
 
 ---
 
-## 📊 **Performance Metrics & Goals**
+## **Performance Metrics & Goals**
 
 ### **Primary Goal: 10% Commute Time Reduction**
 
@@ -219,7 +219,7 @@ All System Data → Dashboard → Human Operators
 
 ---
 
-## 🚨 **Emergency & Manual Override**
+## **Emergency & Manual Override**
 
 ### **When Humans Take Control:**
 
@@ -237,7 +237,7 @@ All System Data → Dashboard → Human Operators
 
 ---
 
-## 🔧 **System Architecture**
+## **System Architecture**
 
 ```
 ┌─────────────┐    ┌─────────────┐    ┌─────────────┐
@@ -263,7 +263,7 @@ All System Data → Dashboard → Human Operators
 
 ---
 
-## 🎯 **Real-World Benefits**
+## **Real-World Benefits**
 
 ### **For Drivers:**
 - **Shorter wait times** at red lights
@@ -285,7 +285,7 @@ All System Data → Dashboard → Human Operators
 
 ---
 
-## 🔮 **Future Enhancements**
+## **Future Enhancements**
 
 ### **What Could Be Added:**
 1. **Multi-intersection coordination** - Optimize traffic across entire corridors
@@ -296,7 +296,7 @@ All System Data → Dashboard → Human Operators
 
 ---
 
-## 🎓 **Key Takeaways**
+## **Key Takeaways**
 
 The Smart Traffic Management System is essentially:
 
@@ -309,4 +309,4 @@ The Smart Traffic Management System is essentially:
 
 **The magic happens** when all these components work together in real-time, creating a system that continuously learns and improves traffic flow, ultimately making everyone's commute faster and more predictable!
 
-The system is like having a super-intelligent traffic controller that never sleeps, never gets tired, and gets smarter every day by learning from millions of traffic situations. 🚦🤖✨
+The system is like having a super-intelligent traffic controller that never sleeps, never gets tired, and gets smarter every day by learning from millions of traffic situations.
