@@ -1,0 +1,77 @@
+{
+  "system": {
+    "camera_fps": 10,
+    "detection_confidence_threshold": 0.8,
+    "vehicle_detection_enabled": true,
+    "learning_rate": 0.01,
+    "epsilon": 0.1,
+    "discount_factor": 0.95,
+    "prediction_horizon_minutes": 30,
+    "prediction_update_interval_seconds": 60,
+    "min_prediction_confidence": 0.7,
+    "max_signal_adjustment_seconds": 120,
+    "signal_update_interval_seconds": 30,
+    "emergency_override_timeout_seconds": 300,
+    "dashboard_refresh_rate_seconds": 5,
+    "max_historical_data_points": 1000,
+    "log_level": "INFO",
+    "log_file_path": "logs/traffic_system.log"
+  },
+  "intersections": {
+    "intersection_001": {
+      "name": "Main St & Oak Ave",
+      "geometry": {
+        "lanes": {
+          "north": {
+            "count": 2,
+            "length": 100
+          },
+          "south": {
+            "count": 2,
+            "length": 100
+          },
+          "east": {
+            "count": 2,
+            "length": 100
+          },
+          "west": {
+            "count": 2,
+            "length": 100
+          }
+        },
+        "signal_phases": [
+          "north_south_green",
+          "east_west_green"
+        ],
+        "default_phase_timings": {
+          "north_south_green": 45,
+          "east_west_green": 45,
+          "yellow": 3,
+          "all_red": 2
+        }
+      },
+      "camera_positions": {
+        "north": {
+          "x": 0,
+          "y": 50,
+          "angle": 180
+        },
+        "south": {
+          "x": 0,
+          "y": -50,
+          "angle": 0
+        },
+        "east": {
+          "x": 50,
+          "y": 0,
+          "angle": 270
+        },
+        "west": {
+          "x": -50,
+          "y": 0,
+          "angle": 90
+        }
+      }
+    }
+  }
+}

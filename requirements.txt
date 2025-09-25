@@ -1,0 +1,25 @@
+# Smart Traffic Management System Dashboard Requirements
+
+# Core dashboard framework
+streamlit>=1.28.0
+
+# Data visualization
+plotly>=5.15.0
+pandas>=2.0.0
+numpy>=1.24.0
+
+# Machine learning (for prediction engine)
+torch>=2.0.0
+scikit-learn>=1.3.0
+
+# Additional utilities
+python-dateutil>=2.8.0
+pytz>=2023.3
+
+# Development and testing
+pytest>=7.4.0
+pytest-mock>=3.11.0
+
+# Optional: For enhanced performance
+# streamlit-aggrid>=0.3.4
+# streamlit-plotly-events>=0.0.6
